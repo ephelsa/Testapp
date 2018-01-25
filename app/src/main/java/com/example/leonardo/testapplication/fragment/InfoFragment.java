@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.leonardo.testapplication.R;
 import com.example.leonardo.testapplication.SQLite.InfoContract.InfoEntry;
 import com.example.leonardo.testapplication.SQLite.InfoContract.InfoDbHelper;
+import com.example.leonardo.testapplication.dialog.InfoDialog;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +42,8 @@ public class InfoFragment extends Fragment {
 
     /* CONST */
     private static final String DB_TAG = "Info_SQLite";
+    private static final String DBHELPER_SERIAL = "dbhelper_sqlite";
+
 
     /* */
     private InfoDbHelper dbHelper;
@@ -50,7 +53,7 @@ public class InfoFragment extends Fragment {
     private View view;
 
     private EditText agregarET, fechaET;
-    private Button agregarBtn, verBtn;
+    private Button agregarBtn, verBtn, borrarBtn;
 
 
 
@@ -95,6 +98,7 @@ public class InfoFragment extends Fragment {
         fechaET = (EditText) view.findViewById(R.id.fecha_et);
         agregarBtn = (Button) view.findViewById(R.id.agregar_btn);
         verBtn = (Button) view.findViewById(R.id.ver_btn);
+        borrarBtn = (Button) view.findViewById(R.id.borrar_btn);
 
         dbHelper = new InfoDbHelper(getContext());
 
@@ -104,6 +108,9 @@ public class InfoFragment extends Fragment {
                 String agregarString = agregarET.getText().toString();
                 String fechaString = fechaET.getText().toString();
 
+                agregarET.setText("");
+                fechaET.setText("");
+
                 writeOnDatabase(agregarString, fechaString);
             }
         });
@@ -112,10 +119,21 @@ public class InfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!isDatabaseVoid()) {
+                    InfoDialog infoDialog = new InfoDialog();
+                    infoDialog.show(getFragmentManager(), "INFO_DIALOG");
+
                     readOnDatabase();
+
                 } else {
                     Toast.makeText(getContext(), "SQLite is void", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        borrarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 
@@ -135,6 +153,7 @@ public class InfoFragment extends Fragment {
             db.insertWithOnConflict(InfoEntry.TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_IGNORE);
 
             Log.i(DB_TAG, "Write");
+            Toast.makeText(getContext(), "Data saved", Toast.LENGTH_SHORT).show();
         }
     }
 

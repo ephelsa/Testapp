@@ -24,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title_notification_tv"
-            android:hint="Solo ingrese segundos" />
+            android:hint="Solo ingrese segundos"
+            android:inputType="number"/>
 
         <Button
             android:id="@+id/notify_btn"

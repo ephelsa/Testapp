@@ -98,7 +98,7 @@ public class NotificationFragment extends Fragment {
             public void onClick(View view) {
                 int time = Integer.valueOf(timeET.getText().toString());
 
-                setNotification(time);
+                sendNotification(time);
             }
         });
 
@@ -107,11 +107,12 @@ public class NotificationFragment extends Fragment {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void setNotification(int time) {
+    private void sendNotification(int time) {
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
 
         Intent notificationIntent = new Intent(getContext(), AlarmReceiver.class);
-        notificationIntent.putExtra("TIME", time);
+        notificationIntent.putExtra("time", time);
+
         PendingIntent broadcast = PendingIntent.getBroadcast(getContext(), 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar cal = Calendar.getInstance();

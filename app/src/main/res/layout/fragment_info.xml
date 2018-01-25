@@ -33,7 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/agregar_et"
             android:layout_marginBottom="30dp"
-            android:hint="Fecha" />
+            android:hint="Fecha"
+            android:inputType="number" />
 
         <Button
             android:id="@+id/agregar_btn"
@@ -44,11 +45,19 @@
 
         <Button
             android:id="@+id/ver_btn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/fecha_et"
             android:layout_toRightOf="@id/agregar_btn"
             android:text="Ver Tabla" />
+
+        <Button
+            android:id="@+id/borrar_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fecha_et"
+            android:layout_toRightOf="@id/ver_btn"
+            android:text="Borrar Tabla" />
 
     </RelativeLayout>
 </ScrollView>
