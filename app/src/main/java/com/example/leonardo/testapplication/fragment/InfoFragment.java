@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,11 @@ import com.example.leonardo.testapplication.R;
 import com.example.leonardo.testapplication.SQLite.InfoContract.InfoEntry;
 import com.example.leonardo.testapplication.SQLite.InfoContract.InfoDbHelper;
 import com.example.leonardo.testapplication.dialog.InfoDialog;
+
+import me.toptas.fancyshowcase.FancyShowCaseQueue;
+import me.toptas.fancyshowcase.FancyShowCaseView;
+import me.toptas.fancyshowcase.FocusShape;
+import me.toptas.fancyshowcase.OnCompleteListener;
 
 /**
  * A simple {@link Fragment} subclass.

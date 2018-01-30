@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="mColor1">#edf3fc</color>
+    <color name="mColor2">#ffc1e5</color>
+    <color name="white">#ffff</color>
+    <color name="target">#303F9F</color>
+    <color name="outTarget">#edfa</color>
 </resources>

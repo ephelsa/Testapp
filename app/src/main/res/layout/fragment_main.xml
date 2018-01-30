@@ -17,14 +17,58 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="SQLite Fragment" />
+            android:text="SQLite Fragment"
+            android:layout_margin="5dp" />
 
         <Button
             android:id="@+id/notification_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/info_btn"
-            android:text="Notification Fragment" />
+            android:text="Notification Fragment"
+            android:layout_margin="5dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notification_btn"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:background="@color/mColor1">
+
+            <TextView
+                android:id="@+id/title_screen_guides_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Screen Guides"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/fancyshowcase_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FancyShowCaseView"
+                android:layout_margin="5dp"
+                android:layout_below="@id/title_screen_guides_tv"/>
+
+            <Button
+                android:id="@+id/tapTargetView_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fancyshowcase_btn"
+                android:text="TabTargetView"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/materialTapTargetPrompt_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tapTargetView_btn"
+                android:text="MaterialTapTargetPrompt"
+                android:layout_margin="5dp" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 </ScrollView>

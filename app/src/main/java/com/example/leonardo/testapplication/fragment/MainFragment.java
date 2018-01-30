@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.leonardo.testapplication.ContainerActivity;
 import com.example.leonardo.testapplication.R;
+import com.example.leonardo.testapplication.screenGuide.ScreenGuide;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,12 +37,13 @@ public class MainFragment extends Fragment {
 
 
     /* */
-
+    private ScreenGuide screenGuide;
 
     /* View components */
     private View view;
 
     private Button infoFragmentBtn, notificationFragmentBtn;
+    private Button fancyShowBtn, tapTargetBtn, materialTapBtn;
 
 
     public MainFragment() {
@@ -83,6 +85,14 @@ public class MainFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_main, container, false);
         infoFragmentBtn = (Button) view.findViewById(R.id.info_btn);
         notificationFragmentBtn = (Button) view.findViewById(R.id.notification_btn);
+        fancyShowBtn = (Button) view.findViewById(R.id.fancyshowcase_btn);
+        tapTargetBtn = (Button) view.findViewById(R.id.tapTargetView_btn);
+        materialTapBtn = (Button) view.findViewById(R.id.materialTapTargetPrompt_btn);
+
+        // Screen guides
+        screenGuide = new ScreenGuide(getActivity(), new View[]
+                {infoFragmentBtn, notificationFragmentBtn, fancyShowBtn, tapTargetBtn, materialTapBtn});
+        // end(Screen guideS)
 
         infoFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +107,28 @@ public class MainFragment extends Fragment {
                 CONTAINER.addFragment(new NotificationFragment(), true, true, R.id.content_view);
             }
         });
+
+        fancyShowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                screenGuide.fancyShowCase();
+            }
+        });
+
+        tapTargetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                screenGuide.tabTargetView();
+            }
+        });
+
+        materialTapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                screenGuide.materialTapTargetPrompt();
+            }
+        });
+
 
         return view;
     }
